@@ -1,0 +1,11 @@
+{
+  "name": "internet-speed",
+  "version": "0.1.0",
+  "description": "Store and visualize internet speed test results from multiple providers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Connor Couetil",
+  "license": "MIT"
+}
