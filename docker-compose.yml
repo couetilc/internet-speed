@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  speedtest:
+    image: speedtest
+    restart: always
+    volumes:
+      - ./data:/home/speedtest/data
+# TODO two services: runtest (speedtest runner), viztest (web app visualizer)
