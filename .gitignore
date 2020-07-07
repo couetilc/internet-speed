@@ -1,2 +1,4 @@
 data/sqlite.db
 bin/speedtest*
+dist/
+.cache/

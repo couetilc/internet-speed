@@ -9,11 +9,14 @@ RUN export SPEEDTEST_VERSION="1.0.0" && \
     chmod +x bin/speedtest
 COPY package.json package-lock.json ./
 RUN npm ci
-COPY src/ .
+COPY src/ src/
+RUN npm run build:parcel
 
 FROM node:12 as app
 WORKDIR /home/speedtest
-COPY --from=build --chown=node:node /home/speedtest .
-USER node
+COPY --from=build /home/speedtest .
+# RUN chmod -R 777 /home/speedtest
+# RUN chown -R node:node /home/speedtest
+# USER node
 
-CMD ["node", "index.js"]
+CMD ["node", "src/index.js"]

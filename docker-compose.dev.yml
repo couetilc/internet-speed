@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  speedtest:
+    image: speedtest:latest
+    restart: always
+    volumes:
+      - dist:/home/speedtest/dist
+  viz:
+    image: speedtest:latest
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src/:/home/speedtest/src
+      - dist:/home/speedtest/dist
+    entrypoint:
+      - npm
+      - run
+      - dev:parcel
+      - --
+      - --hmr-port
+      - "8080"
+# TODO how to have parcel.js watcher run in dev mode without a separate
+# terminal? so  I can run `npm run dev` and both will work?
+volumes:
+  dist:

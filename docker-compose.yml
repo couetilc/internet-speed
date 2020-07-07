@@ -5,4 +5,6 @@ services:
     restart: always
     volumes:
       - ./data:/home/speedtest/data
-# TODO two services: runtest (speedtest runner), viztest (web app visualizer)
+    ports:
+      - "3000:3000"
+# TODO two services: runtest (speedtest runner), webviz (web app visualizer)
